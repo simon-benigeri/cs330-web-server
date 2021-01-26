@@ -40,7 +40,9 @@ class PostListEndpoint(Resource):
         }
         return Response(json.dumps(serialized_data), mimetype="application/json", status=201)
         
+
 class PostDetailEndpoint(Resource):
+    
     def put(self, id):
         # body = request.get_json()
         post = models.Post.objects.get(id=id)

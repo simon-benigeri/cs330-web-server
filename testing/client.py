@@ -23,4 +23,4 @@ def get_posts():
 
 # Uncomment to test:
 create_post()
-pythoget_posts()
+get_posts()
