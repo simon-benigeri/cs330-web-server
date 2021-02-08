@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Tester</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+    <body>
+        <nav>
+            <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
+        </nav>
+        <main>
+            <h1>Add New Post</h1>
+            <form id="post-form">
+                <div class="input-section">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title">
+                </div>
+                <div class="input-section">
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="author">
+                </div>
+                <div class="input-section">
+                    <label for="content">Content</label>
+                    <textarea name="content" id="content"></textarea>
+                </div>
+                <button class="btn btn-main" id="save" type="submit">Save</button>
+                <a class="btn" href="/">Cancel</a>
+            </form>
+            <section id="confirmation" class="hide">
+                <p>
+                    Your post was successfully added. <a href="/">Check it out</a>.
+                </p>
+            </section>
+
+
+
+        </main>
+        <!--  JavaScript files right before the closing body tag -->
+        <script type="text/javascript" src="/static/js/create-post.js"></script>
+    </body>
+</html>

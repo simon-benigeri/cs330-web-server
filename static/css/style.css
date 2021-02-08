@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+}
+h1 {
+    font-size: 1.6rem;
+}
+p, body, div, section {
+    line-height: 1.6;
+}
+
+nav {
+    background: #EEE;
+    height: 50px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: #7952b3;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* align-items: center; */
+    padding-left: 20px;
+}
+nav i {
+    margin-right: 5px;
+}
+nav a, nav a:hover, nav a:active, nav a:visited {
+    color: white;
+    height: 100%;
+    min-width: 50px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 15px;
+    text-decoration: none;
+}
+
+main {
+    padding-left: 15vw;
+    padding-right: 15vw;
+    margin-top: 70px;
+}
+
+.post {
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #CCC;
+}
+
+.input-section {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.input-section label {
+    display: block;
+    /* font-weight: 600; */
+    padding-bottom: 3px;
+    color: #444;
+}
+.input-section input, .input-section textarea {
+    width: 100%;
+    padding: 4px 8px;
+    border-radius: 4px;
+    line-height: 1.7em;
+    border: solid 1px #333;
+}
+
+.input-section textarea {
+    min-height: 250px;
+}
+
+.btn-main {
+    background-color: #7952b3;
+    border-color: #7952b3;
+    color: #fff;
+}
+.btn {
+    font-weight: 600;
+    border-radius: .3rem;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn:hover, .btn:active {
+    background-color: #EEE;
+    border-color: #61428f;
+}
+
+.btn-main:hover, .btn-main:active, nav a:hover {
+    color: #fff;
+    background-color: #61428f;
+    border-color: #61428f;
+}
+
+.hide {
+    display: none !important;
+}
+
+#confirmation {
+    display: inline-block;
+    padding: 15px 10px;
+    background: #0080001f;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.align-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.align-right a, .align-right btn {
+    margin-left: 5px;
+}
