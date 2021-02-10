@@ -53,6 +53,12 @@ main {
     border-bottom: solid 1px #CCC;
 }
 
+.comment {
+    margin: 5px;
+    background-color: hsl(264deg 30% 65%);
+    padding: 5px;
+}
+
 .input-section {
     padding-top: 5px;
     padding-bottom: 5px;

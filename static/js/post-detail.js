@@ -17,6 +17,70 @@ const getPost = () => {
         });
 };
 
+// gets comments from the server 
+const getComments = () => {
+    // fetch comment:
+    // JUSTIN: Note that the comments api is api/comments so here we basically get all the comments
+    fetch('/api/comments/')// + id + '/')
+        .then(response => response.json())
+        .then(displayComments); // callback function
+};
+
+const displayComments = (comments) => {
+    console.log(comments);
+    for (const comment of comments) {
+        // here i filter the comments.
+        // each comment has a post id. so the associated post
+        // note that theres a variable activePost. 
+        // so i basically check that a comment belongs to the active post
+        if (comment.post_id == activePost.id) {
+            let commentHTML = `<section class="comment">
+                <p>${comment.comment}</p>
+                <strong>Author: </strong>${comment.author}
+                <button>delete</button>
+                </section>`;
+            let commentNode = document.createElement('section');
+            commentNode.innerHTML = commentHTML;
+
+            // 3rd child is button
+            commentNode.children[0].children[2].onclick = deleteComment(comment.id)
+
+            document.querySelector('#comments').appendChild(commentNode);
+        }
+    }
+}
+
+const deleteComment = function(commentID) {
+    return function(event) {
+        fetch('/api/comments/' + commentID + '/', { 
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then(function(){
+            event.target.parentElement.parentElement.remove()
+        }) 
+    }
+};
+
+const postComment = function(event) {
+    const data = {
+        post: activePost.id,
+        comment: document.querySelector('#comment-form textarea').value,
+        author: document.querySelector('#comment-form input').value
+    };
+    fetch('/api/comments/', { 
+        method: 'Post',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    }).then(function(){
+        document.querySelector('#comment-form textarea').value = '';
+        document.querySelector('#comment-form input').value = '';
+    }) 
+};
+
 // updates the post:
 const updatePost = (ev) => {
     const data = {
@@ -138,9 +202,12 @@ const showConfirmation = () => {
 const initializePage = () => {
     // get the post from the server:
     getPost();
+    // JUSTIN: here i call my getComments function
+    getComments();
     // add button event handler (right-hand corner:
     document.querySelector('#edit-button').onclick = renderForm;
     document.querySelector('#delete-button').onclick = deletePost;
+    // document.querySelector('#create-button').onclick = createComment;
 };
 
 initializePage();

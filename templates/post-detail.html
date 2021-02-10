@@ -13,21 +13,41 @@
             <section id="menu" class="align-right">
                 <button class="btn btn-main" id="edit-button">Edit Post</button>
                 <button class="btn btn-delete" id="delete-button">Delete</button>
+                <!--<button class="btn btn-comment-add" id="comment-add=button">Comment Post</button>-->
             </section>
 
             <!-- To view the post -->
             <div id="view-post">
                 <section class="post"></section>
-                <section class="comments"></section>
+                <!-- <section class="comments"></section> -->
             </div>
 
             <!-- To edit the post -->
             <form id="post-form" class="hide"></form>
 
             <!-- TODO: Add the comments associated with this blog below: -->
-
-
-
+            <!-- To view the comment -->
+            <div id="comments">
+               <!-- Goal:
+                1. Query the comments endpoint: api/comments
+                2. Build an HTML representation of each comment
+                3. inject those HTML nodes into this section
+                document.querySelector('#comments'.innerHTML = "";
+               -->
+            </div>
+            <h2>Comments</h2>
+            <form id="comment-form">
+                <div class="input-section">
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="author">
+                </div>
+                <div class="input-section">
+                    <label for="comment">Comment</label>
+                    <textarea name="comment" id="comment"></textarea>
+                </div>
+                <button class="btn btn-main" id="save" type="submit" onclick="postComment(event)">Submit Comment</button>
+                <!-- <a class="btn" href="/">Cancel</a> -->
+            </form>
         </main>
 
 
