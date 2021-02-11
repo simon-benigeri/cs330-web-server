@@ -86,19 +86,18 @@ const updatePost = (ev) => {
     };
     console.log(data);
     fetch('/api/posts/' + activePost.id + '/', { 
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(data => {
-            activePost = data;
-            renderPost();
-            showConfirmation();
-        });
-    
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        activePost = data;
+        renderPost();
+        showConfirmation();
+    });
     // this line overrides the default form functionality:
     ev.preventDefault();
 };
