@@ -20,7 +20,6 @@ const getPost = () => {
 // gets comments from the server 
 const getComments = () => {
     // fetch comment:
-    // JUSTIN: Note that the comments api is api/comments so here we basically get all the comments
     fetch('/api/comments/')// + id + '/')
         .then(response => response.json())
         .then(displayComments); // callback function
@@ -30,9 +29,7 @@ const displayComments = (comments) => {
     console.log(comments);
     for (const comment of comments) {
         // here i filter the comments.
-        // each comment has a post id. so the associated post
-        // note that theres a variable activePost. 
-        // so i basically check that a comment belongs to the active post
+        // each comment has a post id
         if (comment.post_id == activePost.id) {
             let commentHTML = `<section class="comment">
                 <p>${comment.comment}</p>
@@ -41,7 +38,6 @@ const displayComments = (comments) => {
                 </section>`;
             let commentNode = document.createElement('section');
             commentNode.innerHTML = commentHTML;
-
             // 3rd child is button
             commentNode.children[0].children[2].onclick = deleteComment(comment.id)
 
@@ -202,12 +198,10 @@ const showConfirmation = () => {
 const initializePage = () => {
     // get the post from the server:
     getPost();
-    // JUSTIN: here i call my getComments function
     getComments();
     // add button event handler (right-hand corner:
     document.querySelector('#edit-button').onclick = renderForm;
     document.querySelector('#delete-button').onclick = deletePost;
-    // document.querySelector('#create-button').onclick = createComment;
 };
 
 initializePage();
